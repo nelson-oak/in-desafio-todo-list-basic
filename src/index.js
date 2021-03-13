@@ -15,9 +15,9 @@ function checksExistsUserAccount(request, response, next) {
 
   const user = users.find(user => user.username === username);
 
-  if(!user) {
+  if (!user) {
     return response.status(404).json({
-      error: 'Username does not exists',
+      error: 'Username does not exists!',
     });
   }
 
@@ -74,7 +74,24 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 });
 
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
+  const { user } = request;
+
+  const { id } = request.params;
+
+  const { title, deadline } = request.body;
+
+  const todoIdx = user.todos.findIndex(todo => todo.id === id);
+
+  if (todoIdx < 0) {
+    return response.status(404).json({
+      error: 'Todo does not exists!',
+    });
+  }
+
+  user.todos[todoIdx].title = title;
+  user.todos[todoIdx].deadline = new Date(deadline);
+
+  return response.status(201).json(user.todos[todoIdx]);
 });
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
