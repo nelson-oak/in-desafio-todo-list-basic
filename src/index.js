@@ -50,7 +50,9 @@ app.post('/users', (request, response) => {
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
+  const { user } = request;
+
+  return response.json(user.todos);
 });
 
 app.post('/todos', checksExistsUserAccount, (request, response) => {
@@ -65,6 +67,8 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
     deadline: new Date(deadline),
     created_at: new Date(),
   };
+
+  user.todos.push(todo);
 
   return response.status(201).json(todo);
 });
