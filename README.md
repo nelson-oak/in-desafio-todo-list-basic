@@ -11,7 +11,7 @@ Desafio com o intuito de fixar os conceitos iniciais de API Rest com Node.js e E
 
 ## Requisitos
 
-- [ ] Deve ser possível cadastrar um usuário
+- [x] Deve ser possível cadastrar um usuário
 - [ ] Deve ser possível listar as tarefas de um usuário
 - [ ] Deve ser possível cadastrar uma tarefa de um usuário
 - [ ] Deve ser possível editar o título e a deadline de uma tarefa
@@ -20,7 +20,7 @@ Desafio com o intuito de fixar os conceitos iniciais de API Rest com Node.js e E
 
 ## Regras de negócio
 
-- [ ] Não deve ser possível criar um usuário com um username já cadastrado
+- [x] Não deve ser possível criar um usuário com um username já cadastrado
 - [ ] Não deve ser possível listar tarefas de um usuário que não existe
 - [ ] Não deve ser possível cadastrar tarefas para um usuário que não existe
 - [ ] Não deve ser possível editar tarefas de um usuário que não existe
